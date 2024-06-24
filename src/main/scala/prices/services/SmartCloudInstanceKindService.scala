@@ -13,7 +13,7 @@ object SmartCloudInstanceKindService {
 
   def make[F[_] : Concurrent](httpClient: PriceHttpClient[F]): InstanceKindService[F] = new SmartCloudInstanceKindService(httpClient)
 
-  private final class SmartCloudInstanceKindService[F[_] : Concurrent](
+  final class SmartCloudInstanceKindService[F[_] : Concurrent](
                                                                         httpClient: PriceHttpClient[F]
                                                                       ) extends InstanceKindService[F] {
 

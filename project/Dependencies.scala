@@ -11,7 +11,9 @@ object Dependencies {
     val pureConfig = "0.16.0"
 
     // Test
-    val munit = "0.7.29"
+    val munit     = "0.7.29"
+    val scalatest = "3.2.19"
+    val scalamock = "3.2.18.0"
 
     // Compiler
     val betterMonadicFor = "0.3.1"
@@ -29,7 +31,9 @@ object Dependencies {
 
   object T { // Test dependencies
     // Scala
-    val munit = "org.scalameta" %% "munit" % V.munit % Test
+    val munit = "org.scalameta"     %% "munit"     % V.munit     % Test
+    val stest = "org.scalatest"     %% "scalatest" % V.scalatest % Test
+    val smock = "org.scalatestplus"     %% "mockito-5-10" % V.scalamock % Test
   }
 
   object C { // Compiler plugins

@@ -17,7 +17,7 @@ final case class PricesRoutes[F[_] : Sync](instancePricesService: InstancePrices
 
   implicit val instancePricesResponseEncoder: EntityEncoder[F, InstancePriceResponse] = jsonEncoderOf[F, InstancePriceResponse]
 
-  private val get: HttpRoutes[F] = HttpRoutes.of {
+  protected val get: HttpRoutes[F] = HttpRoutes.of {
     case request @GET -> Root =>
       request.params.get("kind") match {
         case Some(kind) =>

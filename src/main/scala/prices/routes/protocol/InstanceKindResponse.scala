@@ -13,7 +13,7 @@ object InstanceKindResponse {
     Encoder.instance[InstanceKindResponse] {
       case InstanceKindResponse(k) =>
         Json.obj(
-          "kind" -> k.getString.asJson
+          "kind" -> k.kind.asJson
         )
     }
 
