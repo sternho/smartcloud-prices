@@ -7,7 +7,7 @@ import pureconfig.generic.auto._
 
 case class Config(
     app: Config.AppConfig,
-    smartcloud: Config.SmartcloudConfig
+    smartcloud: Config.SmartCloudConfig
 )
 
 object Config {
@@ -17,7 +17,7 @@ object Config {
       port: Int
   )
 
-  case class SmartcloudConfig(
+  case class SmartCloudConfig(
       baseUri: String,
       token: String
   )

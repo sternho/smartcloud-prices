@@ -1,14 +1,14 @@
 package prices.services
 
 import scala.util.control.NoStackTrace
-
 import prices.data._
+import prices.routes.protocol.InstancePriceResponse
 
-trait InstanceKindService[F[_]] {
-  def getAll(): F[Either[InstanceKindService.Exception, List[InstanceKind]]]
+trait InstancePricesService[F[_]] {
+  def get(kind: InstanceKind): F[Either[InstanceKindService.Exception, InstancePrice]]
 }
 
-object InstanceKindService {
+object InstancePricesService {
 
   sealed trait Exception extends NoStackTrace
   object Exception {
