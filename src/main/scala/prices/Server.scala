@@ -7,7 +7,7 @@ import fs2.Stream
 import org.http4s.ember.server.EmberServerBuilder
 import org.http4s.server.middleware.Logger
 import prices.config.Config
-import prices.http.{HttpClient, PriceHttpClient}
+import prices.http.{HttpClient, SmartCloudHttpClient}
 import prices.routes.{InstanceKindRoutes, PricesRoutes}
 import prices.services.{SmartCloudInstanceKindService, SmartCloudInstancePricesService}
 
@@ -16,7 +16,7 @@ object Server {
   def serve(config: Config): Stream[IO, ExitCode] = {
 
     val httpClient: HttpClient[IO] = new HttpClient[IO]()
-    val priceHttpClient = PriceHttpClient.make(config.smartcloud, httpClient)
+    val priceHttpClient = SmartCloudHttpClient.make(config.smartcloud, httpClient)
 
     val instanceKindService = SmartCloudInstanceKindService.make[IO](priceHttpClient)
     val instancePricesService = SmartCloudInstancePricesService.make[IO](priceHttpClient)
